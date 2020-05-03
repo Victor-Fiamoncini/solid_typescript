@@ -1,12 +1,13 @@
 import EventHandler from "./EventHandler";
+import DOMEventHandler from "./DOMEventHandler";
 
 export default abstract class ShareButton {
 	public eventHandler: EventHandler;
 	public clazz: string;
 
-	public constructor(clazz: string) {
+	public constructor(clazz: string, eventHandler: EventHandler) {
 		this.clazz = clazz;
-		this.eventHandler = new EventHandler();
+		this.eventHandler = eventHandler;
 	}
 
 	public abstract createAction(): Function;

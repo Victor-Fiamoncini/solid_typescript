@@ -1,18 +1,29 @@
-import ShareButtonGithub from "./ShareButtonGithub";
-import ShareButtonLinkedin from "./ShareButtonLinkedin";
-import ShareButtonPrint from "./ShareButtonPrint";
+import ShareButtonGithub from "./buttons/ShareButtonGithub";
+import ShareButtonLinkedin from "./buttons/ShareButtonLinkedin";
+import ShareButtonPrint from "./buttons/ShareButtonPrint";
+import ShareButton from "./buttons/ShareButton";
+import DOMEventHandler from "./buttons/DOMEventHandler";
+import MockEventHandler from "./buttons/MockEventHandler";
 
-const shareButtonGithub = new ShareButtonGithub(
+const domEventHandler = new DOMEventHandler();
+const mockEventHandler = new MockEventHandler();
+
+const shareButtonGithub: ShareButton = new ShareButtonGithub(
 	".btn-github",
+	mockEventHandler,
 	"https://github.com"
 );
 shareButtonGithub.bind();
 
-const shareButtonLinkedin = new ShareButtonLinkedin(
+const shareButtonLinkedin: ShareButton = new ShareButtonLinkedin(
 	".btn-linkedin",
+	domEventHandler,
 	"https://linkedin.com"
 );
 shareButtonLinkedin.bind();
 
-const shareButtonPrint = new ShareButtonPrint(".btn-print");
+const shareButtonPrint: ShareButton = new ShareButtonPrint(
+	".btn-print",
+	domEventHandler
+);
 shareButtonPrint.bind();
